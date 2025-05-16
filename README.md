@@ -72,7 +72,101 @@ php spark serve
 -   .env - File konfigurasi environment (database, baseURL, dsb.) yang dapat diaktifkan dan diedit sesuai kebutuhan
 
 ###
+## 📚 Endpoint untuk Mahasiswa, Mata Kuliah, Prodi, dan KRS
 
-# Kontribusi
+### Mahasiswa
 
-Kontribusi sangat terbuka! Silakan fork repositori ini dan ajukan pull request untuk perbaikan atau penambahan fitur.
+* **Daftar Mahasiswa**
+
+  * **Endpoint**: `GET http://localhost:8080/mahasiswa`
+  * **Header**:
+
+```
+Authorization: Bearer <jwt_token_here>
+```
+
+* **Tambah Mahasiswa**
+
+  * **Endpoint**: `POST http://localhost:8080/mahasiswa`
+  * **Body JSON**:
+
+```json
+{
+    "nama": "Nama Mahasiswa",
+    "nim": "12345678",
+    "jurusan": "Teknik Informatika"
+}
+```
+
+### Dosen
+
+* **Daftar Dosen**
+
+  * **Endpoint**: `GET http://localhost:8080/dosen`
+  * **Header**:
+
+```
+Authorization: Bearer <jwt_token_here>
+```
+
+* **Tambah Dosen**
+
+  * **Endpoint**: `POST http://localhost:8080/dosen`
+  * **Body JSON**:
+
+```json
+{
+    "nama": "Nama Dosen",
+    "nidn": "12345678",
+    "matakuliah": "Pemrograman Web"
+}
+```
+
+### Mata Kuliah
+
+* **Daftar Mata Kuliah**
+
+  * **Endpoint**: `GET http://localhost:8080/matkul`
+  * **Header**:
+
+```
+Authorization: Bearer <jwt_token_here>
+```
+
+* **Tambah Mata Kuliah**
+
+  * **Endpoint**: `POST http://localhost:8080/matkul`
+  * **Body JSON**:
+
+```json
+{
+    "kode": "IF101",
+    "nama": "Pemrograman Web",
+    "sks": 3
+}
+```
+
+### Absensi
+
+* **Daftar Absensi**
+
+  * **Endpoint**: `GET http://localhost:8080/absensi`
+  * **Header**:
+
+```
+Authorization: Bearer <jwt_token_here>
+```
+
+* **Tambah Absensi**
+
+  * **Endpoint**: `POST http://localhost:8080/absensi`
+  * **Body JSON**:
+
+```json
+{
+    "mahasiswa_id": 1,
+    "matkul_id": 1,
+    "status": "Hadir",
+    "tanggal": "2024-05-15"
+}
+```
