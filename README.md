@@ -157,7 +157,7 @@ Authorization: Bearer <jwt_token_here>
 Authorization: Bearer <jwt_token_here>
 ```
 
-* **Tambah Mata Kuliah**
+* **Tambah KRS**
 
   * **Endpoint**: `POST http://localhost:8080/api/pengisian-krs`
   * **Body JSON**:
