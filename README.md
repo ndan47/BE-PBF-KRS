@@ -100,7 +100,7 @@ Authorization: Bearer <jwt_token_here>
 
 ### Mata Kuliah
 
-* **Daftar Dosen**
+* **Daftar Mata Kuliah**
 
   * **Endpoint**: `GET http://localhost:8080/api/matkul`
   * **Header**:
@@ -124,30 +124,6 @@ Authorization: Bearer <jwt_token_here>
 }
 ```
 
-### Mata Kuliah
-
-* **Daftar Mata Kuliah**
-
-  * **Endpoint**: `GET http://localhost:8080/matkul`
-  * **Header**:
-
-```
-Authorization: Bearer <jwt_token_here>
-```
-
-* **Tambah Mata Kuliah**
-
-  * **Endpoint**: `POST http://localhost:8080/matkul`
-  * **Body JSON**:
-
-```json
-{
-    "kode": "IF101",
-    "nama": "Pemrograman Web",
-    "sks": 3
-}
-```
-
 ### Prodi
 
 * **Daftar Prodi**
@@ -167,5 +143,30 @@ Authorization: Bearer <jwt_token_here>
 ```json
 {
     "nama_prodi": "Sastra Mesin"
+}
+```
+
+### KRS
+
+* **Daftar KRS**
+
+  * **Endpoint**: `GET http://localhost:8080/api/pengisian-krs`
+  * **Header**:
+
+```
+Authorization: Bearer <jwt_token_here>
+```
+
+* **Tambah Mata Kuliah**
+
+  * **Endpoint**: `POST http://localhost:8080/api/pengisian-krs`
+  * **Body JSON**:
+
+```json
+{
+    "timestamp": "2025-02-27 20:31:39",
+    "tahun_akademik": "2024/2025",
+    "NPM": "230202002",
+    "id_matkul": "3015"
 }
 ```
