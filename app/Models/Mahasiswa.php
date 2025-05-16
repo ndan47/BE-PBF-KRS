@@ -12,7 +12,7 @@ class Mahasiswa extends Model
     // protected $returnType       = 'array';
     // protected $useSoftDeletes   = false;
     // protected $protectFields    = true;
-    protected $allowedFields    = ['nama_mahasiswa', 'alamat_mahasiswa', 'id_prodi'];
+    protected $allowedFields    = ['NPM', 'nama_mahasiswa', 'alamat_mahasiswa', 'id_prodi'];
 
     // protected bool $allowEmptyInserts = false;
     // protected bool $updateOnlyChanged = true;

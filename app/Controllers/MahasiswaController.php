@@ -37,7 +37,7 @@ class MahasiswaController extends ResourceController
             SELECT m.*, p.nama_prodi 
             FROM mahasiswa m
             JOIN program_studi p ON p.id_prodi = m.id_prodi
-            WHERE m.id_mahasiswa = ?
+            WHERE m.NPM = ?
         ", [$id]);
         $row = $query->getRow();
 
@@ -54,6 +54,7 @@ class MahasiswaController extends ResourceController
     public function create()
     {
         $rules = $this->validate([
+            'NPM' => 'required',
             'nama_mahasiswa' => 'required',
             'alamat_mahasiswa' => 'required',
             'id_prodi' => 'required',
@@ -66,9 +67,10 @@ class MahasiswaController extends ResourceController
         }
 
         $this->db->query("
-            INSERT INTO mahasiswa (nama_mahasiswa, alamat_mahasiswa, id_prodi) 
-            VALUES (?, ?, ?)
+            INSERT INTO mahasiswa (NPM, nama_mahasiswa, alamat_mahasiswa, id_prodi) 
+            VALUES (?, ?, ?, ?)
         ", [
+            $this->request->getVar('NPM'),
             $this->request->getVar('nama_mahasiswa'),
             $this->request->getVar('alamat_mahasiswa'),
             $this->request->getVar('id_prodi'),
@@ -81,7 +83,7 @@ class MahasiswaController extends ResourceController
 
     public function update($id = null)
     {
-        $check = $this->db->query("SELECT * FROM mahasiswa WHERE id_mahasiswa = ?", [$id])->getRow();
+        $check = $this->db->query("SELECT * FROM mahasiswa WHERE NPM = ?", [$id])->getRow();
         if ($check === null) {
             return $this->failNotFound('Data mahasiswa tidak ditemukan');
         }
@@ -101,7 +103,7 @@ class MahasiswaController extends ResourceController
         $this->db->query("
             UPDATE mahasiswa 
             SET nama_mahasiswa = ?, alamat_mahasiswa = ?, id_prodi = ? 
-            WHERE id_mahasiswa = ?
+            WHERE NPM = ?
         ", [
             $this->request->getVar('nama_mahasiswa'),
             $this->request->getVar('alamat_mahasiswa'),
@@ -116,12 +118,12 @@ class MahasiswaController extends ResourceController
 
     public function delete($id = null)
     {
-        $check = $this->db->query("SELECT * FROM mahasiswa WHERE id_mahasiswa = ?", [$id])->getRow();
+        $check = $this->db->query("SELECT * FROM mahasiswa WHERE NPM = ?", [$id])->getRow();
         if ($check === null) {
             return $this->failNotFound('Data mahasiswa tidak ditemukan');
         }
 
-        $this->db->query("DELETE FROM mahasiswa WHERE id_mahasiswa = ?", [$id]);
+        $this->db->query("DELETE FROM mahasiswa WHERE NPM = ?", [$id]);
 
         return $this->respondDeleted([
             'message' => 'Data mahasiswa berhasil dihapus'
