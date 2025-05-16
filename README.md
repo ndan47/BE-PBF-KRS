@@ -78,7 +78,7 @@ php spark serve
 
 * **Daftar Mahasiswa**
 
-  * **Endpoint**: `GET http://localhost:8080/mahasiswa`
+  * **Endpoint**: `GET http://localhost:8080/api/mahasiswa`
   * **Header**:
 
 ```
@@ -87,38 +87,40 @@ Authorization: Bearer <jwt_token_here>
 
 * **Tambah Mahasiswa**
 
-  * **Endpoint**: `POST http://localhost:8080/mahasiswa`
+  * **Endpoint**: `POST http://localhost:8080/api/mahasiswa`
   * **Body JSON**:
 
 ```json
 {
-    "nama": "Nama Mahasiswa",
-    "nim": "12345678",
-    "jurusan": "Teknik Informatika"
+    "nama_mahasiswa": "Hendra Satria",
+    "alamat_mahasiswa": "Jalan Katik",
+    "id_prodi": "900"
 }
 ```
 
-### Dosen
+### Mata Kuliah
 
 * **Daftar Dosen**
 
-  * **Endpoint**: `GET http://localhost:8080/dosen`
+  * **Endpoint**: `GET http://localhost:8080/api/matkul`
   * **Header**:
 
 ```
 Authorization: Bearer <jwt_token_here>
 ```
 
-* **Tambah Dosen**
+* **Tambah Mata Kuliah**
 
-  * **Endpoint**: `POST http://localhost:8080/dosen`
+  * **Endpoint**: `POST http://localhost:8080/api/matkul`
   * **Body JSON**:
 
 ```json
 {
-    "nama": "Nama Dosen",
-    "nidn": "12345678",
-    "matakuliah": "Pemrograman Web"
+    "semester": 4,
+    "nama_matkul": "Ilmu Membelah Diri",
+    "banyak_sks": 2,
+    "banyak_jam_matkul": 6,
+    "keterangan": ""
 }
 ```
 
@@ -146,27 +148,24 @@ Authorization: Bearer <jwt_token_here>
 }
 ```
 
-### Absensi
+### Prodi
 
-* **Daftar Absensi**
+* **Daftar Prodi**
 
-  * **Endpoint**: `GET http://localhost:8080/absensi`
+  * **Endpoint**: `GET http://localhost:8080/api/prodi`
   * **Header**:
 
 ```
 Authorization: Bearer <jwt_token_here>
 ```
 
-* **Tambah Absensi**
+* **Tambah Prodi**
 
-  * **Endpoint**: `POST http://localhost:8080/absensi`
+  * **Endpoint**: `POST http://localhost:8080/api/prodi`
   * **Body JSON**:
 
 ```json
 {
-    "mahasiswa_id": 1,
-    "matkul_id": 1,
-    "status": "Hadir",
-    "tanggal": "2024-05-15"
+    "nama_prodi": "Sastra Mesin"
 }
 ```
